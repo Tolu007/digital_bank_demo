@@ -18,9 +18,9 @@ router.post('/', async (req, res) => {
     let toUser = await users.findOne({ "number": toAccount });
     let fromUser = await users.findOne({ "number": fromAccount });
     if (!toUser) {
-        res.status(404).send('Account cannot be found');
+        return res.status(404).send('Account cannot be found');
     } if (!fromUser) {
-        res.status(404).send('Account cannot be found');
+        return res.status(404).send('Account cannot be found');
     }
 
     let toNewAmount = parseFloat(toUser.balance, 10) + parseFloat(amount);
@@ -57,7 +57,7 @@ router.post('/', async (req, res) => {
                 }
             }
         });
-        res.send(updateToHistory);
+        return res.send(updateToHistory);
     } catch (error) {
         res.json({ "message": error });
     }
@@ -67,7 +67,7 @@ router.get('/:number', async (req, res) => {
     const number = req.params.number;
     let user = await users.findOne({ number: number });
     let transactionHistory = user.transactions;
-    res.send(transactionHistory);
+    return res.send(transactionHistory);
 
 
 });
