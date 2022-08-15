@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-// const users = require('../models/userSchema');
+const users = require('../models/userSchema');
 
-import users from '../models/userSchema';
+// import users from '../models/userSchema';
 const history = require('../models/transactionHistorySchema');
 const mongoose = require('mongoose');
 
