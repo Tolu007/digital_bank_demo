@@ -43,6 +43,6 @@ const userSchema = mongoose.Schema({
 },
 );
 
-export default mongoose.model('userInfo', userSchema);
+// exports default mongoose.model('userInfo', userSchema);
 
-// module.exports = mongoose.model('userInfo', userSchema);
+module.exports = mongoose.model('userInfo', userSchema);
