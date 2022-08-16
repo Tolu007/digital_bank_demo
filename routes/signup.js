@@ -7,7 +7,7 @@ router.post('/', async (req, res) => {
     console.log(req.body);
     let user = await users.findOne({ number: req.body.number });
     if (user) {
-        return res.status(400).send('User already exists');
+        return res.status(400).send({ message: 'User already exists' });
     }
     const newUser = new users({
         name: req.body.name,
@@ -20,9 +20,9 @@ router.post('/', async (req, res) => {
     newUser.password = await bcrypt.hash(newUser.password, salt);
     try {
         const saveUser = await newUser.save();
-        res.json(saveUser);
+        return res.send({ message: 'Success' });
     } catch (err) {
-        res.json({ message: err });
+        return res.send({ message: 'An error occured' });
     }
 });
 
