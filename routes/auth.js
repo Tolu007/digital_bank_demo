@@ -12,7 +12,7 @@ router.post('/', async (req, res) => {
     if (!validPassword) {
         return res.status(400).send({ message: 'failed' });
     }
-    let message = 'Success';
+    let status = { message: 'Success' };
     let payload = { ...message, ...user };
     return res.send(payload);
 });
