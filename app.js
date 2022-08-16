@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const cors = require("cors");
 
 // import { mongoose } from 'mongoose';
 
@@ -12,6 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({
     extended: true
 }));
+app.use(cors());
 
 
 
