@@ -13,7 +13,7 @@ router.post('/', async (req, res) => {
         return res.status(400).send({ message: 'failed' });
     }
     let status = { message: 'Success' };
-    let payload = { ...message, ...user };
+    let payload = { ...status, ...user };
     return res.send(payload);
 });
 
