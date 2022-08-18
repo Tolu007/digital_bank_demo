@@ -16,14 +16,13 @@ app.use(express.urlencoded({
 app.use(cors());
 
 
-
 //ROUTES
 const signupRoute = require('./routes/signup');
 const authRoute = require('./routes/auth');
 const transferRoute = require('./routes/transfer');
 
 app.use('/users/signup', signupRoute);
-app.use('/users/auth', authRoute);
+app.use('/users/auth', cors(), authRoute);
 app.use('/users/transfer', transferRoute);
 
 app.get('/', (req, res) => {
