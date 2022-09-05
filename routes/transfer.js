@@ -57,9 +57,9 @@ router.post('/', async (req, res) => {
                 }
             }
         });
-        return res.send(updateToHistory);
+        return res.send({ 'message': 'Success' });
     } catch (error) {
-        res.json({ "message": error });
+        res.send({ "message": error });
     }
 });
 
