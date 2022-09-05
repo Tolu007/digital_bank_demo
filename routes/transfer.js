@@ -68,8 +68,12 @@ router.get('/:number', async (req, res) => {
     let user = await users.findOne({ number: number });
     let transactionHistory = user.transactions;
     return res.send(transactionHistory);
+});
 
-
+router.get('/userId/:number', async (req, res) => {
+    const number = req.params.number;
+    let user = await users.findOne({ number: number });
+    return res.send(user.name);
 });
 
 module.exports = router;
