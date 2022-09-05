@@ -63,15 +63,15 @@ router.post('/', async (req, res) => {
     }
 });
 
-router.get('/:number', async (req, res) => {
-    const number = req.params.number;
+router.get('/transacthistory', async (req, res) => {
+    const number = req.body.number;
     let user = await users.findOne({ number: number });
     let transactionHistory = user.transactions;
     return res.send(transactionHistory);
 });
 
-router.get('/userId/:number', async (req, res) => {
-    const number = req.params.number;
+router.get('/userId/', async (req, res) => {
+    const number = req.body.number;
     let user = await users.findOne({ number: number });
     return res.send({ 'name': user.name });
 });
