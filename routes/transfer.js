@@ -73,7 +73,7 @@ router.get('/:number', async (req, res) => {
 router.get('/userId/:number', async (req, res) => {
     const number = req.params.number;
     let user = await users.findOne({ number: number });
-    return res.send(user.name);
+    return res.send({ 'name': user.name });
 });
 
 module.exports = router;
